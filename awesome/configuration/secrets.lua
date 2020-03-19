@@ -49,7 +49,7 @@ return {
 	},
 
 	lockscreen = {
-		password 	  = '0070'
+		password 	  = 'toor'
 	}
 
 }
