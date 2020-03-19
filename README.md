@@ -4,7 +4,7 @@ AwesomeWM Dot files
 
 ## Screenshots
 
-![Base Desktop on POP OS](https://github.com/Bearbobs/glorious-awesome-debian/tree/master/screenshots/scrrenshots/snap1.png)
+![Base Desktop on POP OS](https://github.com/Bearbobs/glorious-awesome-debian/blob/master/screenshots/scrrenshots/snap1.png)
 
 ![Sidebar](https://github.com/Bearbobs/glorious-awesome-debian/tree/master/screenshots/scrrenshots/snap2.png)
 
