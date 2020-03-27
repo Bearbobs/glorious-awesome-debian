@@ -12,7 +12,7 @@ AwesomeWM Dot files for setting up on debain based distro.
 
 ## How to install
 
-Just follow steps on the gist attached [LINK](https://gist.github.com/Bearbobs/2b744adda0a5151d4530ba763de993ef)
+Just follow steps on the gist attached [Link](https://gist.github.com/Bearbobs/2b744adda0a5151d4530ba763de993ef)
 
 ## Main Developer
 
