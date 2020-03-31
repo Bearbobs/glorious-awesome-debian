@@ -1,11 +1,14 @@
-local naughty = require('naughty')
 local gears = require('gears')
 local wibox = require('wibox')
 local awful = require('awful')
 local ruled = require('ruled')
+local naughty = require('naughty')
+local menubar = require("menubar")
 local beautiful = require('beautiful')
 
 local dpi = beautiful.xresources.apply_dpi
+
+local clickable_container = require('widget.clickable-container')
 
 -- Defaults
 naughty.config.defaults.ontop = true
@@ -26,9 +29,11 @@ naughty.config.icon_dirs = {
 	"/usr/share/icons/Tela-blue-dark",
 	"/usr/share/icons/la-capitaine-icon-theme/",
 	"/usr/share/icons/Papirus/",
+	"/usr/share/icons/gnome/",
+	"/usr/share/icons/hicolor/",
 	"/usr/share/pixmaps/"
 }
-naughty.config.icon_formats = {	"png", "svg", "jpg" }
+naughty.config.icon_formats = {	"png", "svg", "jpg", "gif" }
 
 
 -- Presets / rules
@@ -90,7 +95,19 @@ naughty.connect_signal("request::display_error", function(message, startup)
     }
 end)
 
+-- XDG icon lookup
+naughty.connect_signal("request::icon", function(n, context, hints)
+    if context ~= "app_icon" then return end
 
+    local path = menubar.utils.lookup_icon(hints.app_icon) or
+        menubar.utils.lookup_icon(hints.app_icon:lower())
+
+    if path then
+        n.icon = path
+    end
+end)
+
+-- Naughty template
 naughty.connect_signal("request::display", function(n)
 
 	-- naughty.actions template
@@ -104,19 +121,22 @@ naughty.connect_signal("request::display", function(n)
 			{
 				{
 					{
-						id     = 'text_role',
-						font   = 'SF Pro Text Regular 10',
-						widget = wibox.widget.textbox
+						{
+							id     = 'text_role',
+							font   = 'SF Pro Text Regular 10',
+							widget = wibox.widget.textbox
+						},
+						widget = wibox.container.place
 					},
-					widget = wibox.container.place
+					widget = clickable_container
 				},
 				bg                 = beautiful.groups_bg,
 				shape              = gears.shape.rounded_rect,
 				forced_height      = dpi(30),
-				widget             = wibox.container.background,
+				widget             = wibox.container.background
 			},
 			margins = dpi(4),
-			widget  = wibox.container.margin,
+			widget  = wibox.container.margin
 		},
 		style = { underline_normal = false, underline_selected = true },
 		widget = naughty.list.actions
@@ -126,7 +146,7 @@ naughty.connect_signal("request::display", function(n)
 	naughty.layout.box {
 		notification = n,
 		type = "notification",
-		screen = awful.screen.focused(),
+		screen = awful.screen.preferred(),
 		shape = gears.shape.rectangle,
 		widget_template = {
 			{
