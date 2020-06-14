@@ -1,6 +1,6 @@
-# Glorious Awesome Debian
+# Glorious Awesome 
 
-AwesomeWM Dot files for setting up on debain based distro.
+AwesomeWM Dot files.
 
 ## Screenshots
 
