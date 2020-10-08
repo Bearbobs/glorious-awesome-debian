@@ -14,7 +14,7 @@ local tip = titlebar_icon_path
 local theme = {}
 theme.icons = theme_dir .. '/icons/'
 
--- Font
+-- Font Config
 theme.font = 'SF Pro Text Regular 10'
 theme.font_bold = 'SF Pro Text Bold 10'
 
