@@ -14,6 +14,10 @@ AwesomeWM Dot files.
 
 Just follow steps on the gist attached [Link](https://gist.github.com/Bearbobs/2b744adda0a5151d4530ba763de993ef)
 
+## Supported OS:
+
+Debain,Ubuntu and other debian based derivative
+
 ## Main Developer
 
 [The-Glorious-Files](https://github.com/manilarome/the-glorious-dotfiles)
